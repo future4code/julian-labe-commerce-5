@@ -30,6 +30,7 @@ function App() {
       <Filtro />
       <Home />
     <BCarrinhoEstilizado><IconeAtivaCarrinho src={BotaoCarrinho} /></BCarrinhoEstilizado>
+    <Carrinho />
     </MainContainer>
   );
 }

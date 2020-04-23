@@ -22,13 +22,24 @@ export class Produtos extends React.Component {
         }],
     }
 
+    selecionaProduto = (id) => {
+        const adicionaProduto = this.state.produtos.filter((produto) => {
+            if(id === produto.id) {
+                return true
+            } else {
+                return false
+            }
+        })
+        localStorage.setItem("produto", JSON.stringify(adicionaProduto))
+    }
+
     popularProdutos = () => {
         let novaLista = this.state.produtos
-        for(let i = 0; i < 7; i++) {
+        for(let i = 0; this.state.produtos.length < 8; i++) {
             const novoProduto = {
-                id: Date.now(),
+                id: i,
                 name: `Produto - ${i+1}`,
-                value: `R$ ${i + 10}`,
+                value: `R$ ${i * 3}`,
                 imageUrl: `https://picsum.photos/200/200?id/${i}`
             }
             novaLista.push(novoProduto)
@@ -45,7 +56,7 @@ export class Produtos extends React.Component {
                                     <img src={produto.imageUrl} alt="imagem genérica" />
                                     <h4>{produto.name}</h4>
                                     <h4>{produto.value}</h4>
-                                    <button>add ao carrinho</button>
+                                    <button onClick={() => this.selecionaProduto(produto.id)}>adicionar ao carrinho</button>
                                 </div>
                     })}
                 </GridProdutos>
