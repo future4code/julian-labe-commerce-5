@@ -16,27 +16,85 @@ export class Produtos extends React.Component {
     state = {
         produtos: [{
             id: Date.now(),
-            name: "Produto - Modelo",
-            value: "R$ 0,01",
+            name: "Aerolitos do Chapolin",
+            value: 120342.01,
             imageUrl: 'https://picsum.photos/200/200'
-        }],
+        },
+        {
+            id: Date.now(),
+            name: "Meteorito Lovebackin Sevendays",
+            value: 10200.02,
+            imageUrl: 'https://picsum.photos/200/200'
+        },{
+            id: Date.now(),
+            name: "Meterorito de Grayskull",
+            value: 22134.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },{
+            id: Date.now(),
+            name: "Aerolito Filosofal",
+            value: 9234.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Aerolito Aerodactyl",
+            value: 6534.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Meterorito Checkmate",
+            value: 4534.65,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Aerolitos XPTO",
+            value: 2334.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Aerolitos XPTO",
+            value: 2334.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Aerolitos XPTO",
+            value: 2334.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Aerolitos XPTO",
+            value: 2334.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        },
+        {
+            id: Date.now(),
+            name: "Aerolitos XPTO",
+            value: 2334.23,
+            imageUrl: 'https://picsum.photos/200/200'
+        }
+    ],
     }
 
-    popularProdutos = () => {
-        let novaLista = this.state.produtos
-        for(let i = 0; i < 7; i++) {
-            const novoProduto = {
-                id: Date.now(),
-                name: `Produto - ${i+1}`,
-                value: `R$ ${i + 10}`,
-                imageUrl: `https://picsum.photos/200/200?id/${i}`
-            }
-            novaLista.push(novoProduto)
-        }
-    }
+    // popularProdutos = () => {
+    //     let novaLista = this.state.produtos
+    //     for(let i = 0; i < 7; i++) {
+    //         const novoProduto = {
+    //             id: Date.now(),
+    //             name: `Produto - ${i+1}`,
+    //             value: `R$ ${i + 10}`,
+    //             imageUrl: `https://picsum.photos/200/200?id/${i}`
+    //         }
+    //         novaLista.push(novoProduto)
+    //     }
+    // }
 
     render () {
-        this.popularProdutos()
         const listaProdutos = this.state.produtos
 
         return  <GridProdutos>
