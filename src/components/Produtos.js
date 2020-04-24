@@ -120,9 +120,16 @@ export class Produtos extends React.Component {
         //                 <button onClick={() => this.props.aoAdicionar(produto.id, produto.name, produto.value, produto.imageUrl)}>add ao carrinho</button>
         //             </div>
         // })}
-
+        /* 
+        </GridProdutos> */
         return  <GridProdutos>
-    
+                    <div>
+                        <img src={this.props.imageUrl}/>
+                        <h4>{this.props.name}</h4>
+                        <h4>{this.props.value}</h4>
+                        <button onClick={() => this.props.aoAdicionar(this.props.produto.id, this.props.produto.name, this.props.produto.value, this.props.produto.imageUrl)}>add ao carrinho</button>
+                    </div> 
                 </GridProdutos>
+            
     }
 }

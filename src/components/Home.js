@@ -28,21 +28,21 @@ export class Home extends React.Component {
                     // localStorage.setItem("produto", JSON.stringify(adicionaProduto))
                 }
 
-                popularProdutos = () => {
-                    let novaLista = this.state.produtos
-                    for(let i = 0; this.state.produtos.length < 8; i++) {
-                        const novoProduto = {
-                            id: i+1,
-                            name: `Produto - ${i+1}`,
-                            value: `R$ ${i * 3}`,
-                            imageUrl: `https://picsum.photos/200/200?id/${i}`
-                        }
-                        novaLista.push(novoProduto)
-                        this.setState({produtos: novaLista})
-                    }
-                }
+    popularProdutos = () => {
+        let novaLista = this.state.produtos
+        for(let i = 0; this.state.produtos.length < 8; i++) {
+            const novoProduto = {
+                id: i+1,
+                name: `Produto - ${i+1}`,
+                value: `R$ ${i * 3}`,
+                imageUrl: `https://picsum.photos/200/200?id/${i}`
+            }
+            novaLista.push(novoProduto)
+            this.setState({produtos: novaLista})
+        }
+    }
 
-
+// aoAdicionar={this.selecionaProduto}
                 
     render () {
 
@@ -54,18 +54,17 @@ export class Home extends React.Component {
         this.popularProdutos();
         const listaDeProdutosExibidos = this.state.produtos
         .map((produto) => {
-            return  <Produtos aoAdicionar={this.selecionaProduto}
+            return  <Produtos 
                         imageUrl={produto.imageUrl}
                         name={produto.name}
-                        value={produto.valor}
-        
+                        value={produto.value}
                     />
         })
         
 
-        return  <div>
-            {listaDeProdutosExibidos}
-            {listaDeProdutos}
-            </div>
+        return   <div>
+                    {listaDeProdutosExibidos}
+                    {listaDeProdutos}
+                </div>
     }
 }
