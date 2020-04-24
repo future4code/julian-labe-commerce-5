@@ -116,7 +116,8 @@ export class Produtos extends React.Component {
         //     return  <div>
         //                 <img src={produto.imageUrl} alt="imagem genérica" />
         //                 <h4>{produto.name}</h4>
-        //                 <h4>{produto.value}</h4>
+        //                 <h4>{produto.value}</h4>kkkk
+        
         //                 <button onClick={() => this.props.aoAdicionar(produto.id, produto.name, produto.value, produto.imageUrl)}>add ao carrinho</button>
         //             </div>
         // })}
