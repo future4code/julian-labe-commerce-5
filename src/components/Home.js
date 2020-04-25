@@ -1,6 +1,50 @@
 import React from 'react';
 import { Produtos } from './Produtos'
 
+
+
+
+import Carrinho from './Carrinho.component';
+import Filtro from './Filtro.component';
+
+import BotaoCarrinho from '../icones/add_shopping_cart-black-18dp.svg'
+
+
+
+
+
+
+import styled from 'styled-components';
+
+const GridProdutos = styled.div`
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+grid-gap: 10px;
+padding: 20px;
+`
+
+const MainContainer = styled.div`
+display: grid;
+grid-template-columns: ${(props) => props.carrinhoAberto ? "1fr 3fr 1fr" : "1fr 3fr"};
+padding: 20px;
+`
+const BCarrinhoEstilizado = styled.button`
+position: fixed;
+bottom: 40px;
+right: 40px;
+border-radius: 100%;
+height: 100px;
+width: 100px;
+outline: none;
+border: none;
+`
+const PlaceHolder = styled.img`
+display: none;
+`
+const IconeAtivaCarrinho = styled.img`
+width: 60%;
+`
+
 export class Home extends React.Component {
     state = {
         produtos: [{
@@ -41,7 +85,7 @@ export class Home extends React.Component {
         },
         {
             id: 7,
-            name: "Aerolitos XPTO",
+            name: "Aerolitos Kabuto",
             value: 2334.23,
             imageUrl: 'https://picsum.photos/200/200'
         },
@@ -65,12 +109,13 @@ export class Home extends React.Component {
         },
         {
             id: 11,
-            name: "Aerolitos XPTO",
+            name: "Pedra da lua",
             value: 2334.23,
             imageUrl: 'https://picsum.photos/200/200'
         }
     ],
-        produtosNoCarrinho: []
+        produtosNoCarrinho: [],
+        exibirCarrinho: false
     }
 
     selecionaProduto = (id, name, value, imageUrl) => {
@@ -101,7 +146,19 @@ export class Home extends React.Component {
     }
  */
 
+    mostrarCarrinho = (e) =>{
+        e.preventDefault();
+        this.setState({exibirCarrinho: !this.state.exibirCarrinho});
+    }
+
     render () {
+
+        let cart;
+        if(this.state.exibirCarrinho){
+        cart = <Carrinho/>;
+        }else{
+        cart = <PlaceHolder/>
+        }
 
         const listaDeProdutos = this.state.produtosNoCarrinho
         .map((produto) => {
@@ -119,9 +176,20 @@ export class Home extends React.Component {
                     />
         })
 
-        return  <div>
-                    {listaDeProdutosExibidos}
-                    {listaDeProdutos}
+        return  <div>                    
+                    <MainContainer carrinhoAberto={this.state.exibirCarrinho}>
+                        <Filtro />
+                        <GridProdutos>
+                            {listaDeProdutosExibidos}
+                        </GridProdutos>
+                        <div>
+                            <h1>Carrinho</h1>
+                            <lu>{listaDeProdutos}</lu>
+                            {cart}
+                        </div>
+                        
+                        <BCarrinhoEstilizado onMouseDown={this.mostrarCarrinho}><IconeAtivaCarrinho src={BotaoCarrinho} /></BCarrinhoEstilizado>
+                    </MainContainer>
                 </div>
     }
 }

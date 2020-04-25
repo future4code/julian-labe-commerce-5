@@ -9,7 +9,6 @@ export default class Carrinho extends React.Component{
         <ul>
             {this.props.listaDeItens}
         </ul>
-        <h1>Carrinho</h1>
         <p>Total: <strong>R${this.props.total}</strong></p>
         <img src={AdicionaProduto} width='50px'/>
         </section>)
