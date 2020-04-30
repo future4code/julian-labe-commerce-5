@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Home } from './components/Home'
 
-function App() {
+import './App.css';
+import Carrinho from './components/Carrinho.component';
+import Filtro from './components/Filtro.component';
+import styled from 'styled-components';
+import BotaoCarrinho from './icones/add_shopping_cart-black-18dp.svg'
+
+class App extends React.Component {
+
+  constructor(){
+    super();
+
+    this.state = {
+      
+    }
+  }
+
+  render(){
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Home />
   );
+  }
 }
 
 export default App;
